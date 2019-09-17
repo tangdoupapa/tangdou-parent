@@ -15,7 +15,7 @@
     <properties>
         <java.version>1.8</java.version>
         <springboot.version>2.1.7.RELEASE</springboot.version>
-        <hutool.version>4.5.10</hutool.version>
+        <hutool.version>4.6.4</hutool.version>
         <junit.version>4.11</junit.version>
     </properties>
 
@@ -30,7 +30,7 @@
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
-                <artifactId>hutool-parent</artifactId>
+                <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
             <dependency>

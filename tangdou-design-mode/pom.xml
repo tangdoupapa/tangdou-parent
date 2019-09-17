@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.tangdou</groupId>
-        <artifactId>tangdou-collect</artifactId>
+        <artifactId>tangdou-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>tangdou-design-mode</artifactId>
@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-parent</artifactId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
     </dependencies>
 </project>
