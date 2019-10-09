@@ -1,6 +1,7 @@
 package com.tangdou.creational.factory;
 
 import com.tangdou.creational.factory.entity.Product;
+import com.tangdou.creational.factory.entity.ProductA;
 
 import java.io.Serializable;
 
@@ -28,5 +29,10 @@ public class Cliect implements Serializable {
         FactoryMethod factoryMethod2 = new FactoryMethod1();
         Product productMethod2 = factoryMethod2.createProduct();
         System.out.println("productMethod2 class = " + productMethod2.getClass());
+
+        //测试抽象方法
+        AbstractFactory abstractFacroy1 = new AbstractFacroy1();
+        ProductA productA = abstractFacroy1.createProductA();
+        System.out.println("productA class = " + productA.getClass());
     }
 }
