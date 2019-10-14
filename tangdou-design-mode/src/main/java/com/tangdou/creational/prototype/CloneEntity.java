@@ -49,7 +49,7 @@ public class CloneEntity implements Cloneable, Serializable {
             return ois.readObject();
         } catch (Exception e) {
         }
-
+        return null;
 
     }
 }
