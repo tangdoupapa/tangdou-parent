@@ -13,7 +13,6 @@ import java.util.List;
  * @Version: V1.0
  */
 @Data
-@Slf4j
 public class CloneEntity implements Cloneable, Serializable {
 
     private static final long serialVersionUID = -1L;
