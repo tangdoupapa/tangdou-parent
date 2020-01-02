@@ -1,12 +1,10 @@
 package com.tangdou.creational.singleton;
 
-import cn.hutool.core.util.ObjectUtil;
-
 /**
- *  @author: tangdoupapa
- *  @Date: 2019/9/15 14:02
- *  @Description: 饿汉式单例模式 - 线程安全
- *  @Version: V1.0
+ * @author: tangdoupapa
+ * @Date: 2019/9/15 14:02
+ * @Description: 饿汉式单例模式 - 线程安全
+ * @Version: V1.0
  */
 public class EagerSingleton {
 

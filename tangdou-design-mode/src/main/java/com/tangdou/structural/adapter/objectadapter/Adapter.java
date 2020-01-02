@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author: tangdoupapa
  * @Date: 2020/1/3
- * @Description:
+ * @Description: 对象适配器 - 通过组合模式持有该对象
  * @Version: V1.0
  */
 public class Adapter implements Target, Serializable {

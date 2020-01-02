@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author: tangdoupapa
  * @Date: 2020/1/2
- * @Description:
+ * @Description: 目标接口实现类
  * @Version: V1.0
  */
 public class ConcreteTarget implements Target, Serializable {
