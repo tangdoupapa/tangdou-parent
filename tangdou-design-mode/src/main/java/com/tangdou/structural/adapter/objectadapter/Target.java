@@ -8,5 +8,5 @@ package com.tangdou.structural.adapter.objectadapter;
  */
 public interface Target {
 
-    public void request();
+    void request();
 }
