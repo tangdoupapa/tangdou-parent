@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.tangdou</groupId>
-            <artifactId>tangdou-ihrm-company-service</artifactId>
+            <artifactId>tangdou-ihrm-company-service-impl</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>
