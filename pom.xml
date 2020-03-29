@@ -5,10 +5,12 @@
     <packaging>pom</packaging>
     <modules>
         <module>tangdou-design-mode</module>
+        <module>tangdou-ihrm</module>
+        <module>tangdou-common</module>
     </modules>
     <groupId>com.tangdou</groupId>
     <artifactId>tangdou-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>tangdou-parent</name>
     <description>Demo project for Spring Boot</description>
 
@@ -17,8 +19,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <springboot.version>2.2.2.RELEASE</springboot.version>
-        <hutool.version>4.6.4</hutool.version>
+        <hutool.version>5.2.4</hutool.version>
         <junit.version>4.11</junit.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger.version>1.5.21</swagger.version>
+        <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <fastjson.version>1.2.67</fastjson.version>
+        <mysql.version>5.1.35</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -40,6 +47,37 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <!--API文档集成-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
