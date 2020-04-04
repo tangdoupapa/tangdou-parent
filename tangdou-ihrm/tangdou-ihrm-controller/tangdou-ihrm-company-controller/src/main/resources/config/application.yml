@@ -1,5 +1,5 @@
 spring:
   profiles:
-    active: dev,druid
+    active: dev,druid,activiti
 server:
   port: 8010

@@ -11,9 +11,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  activiti:
-    database-schema-update: true
-    db-history-used: true
   security:
     user:
       name: admin
