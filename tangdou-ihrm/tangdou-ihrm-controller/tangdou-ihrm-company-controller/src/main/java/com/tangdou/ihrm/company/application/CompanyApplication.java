@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @Date: 2020/3/29 09:56
  * @Description:
  */
-@SpringBootApplication(scanBasePackages = "com.tangdou.ihrm.company")
+@SpringBootApplication(scanBasePackages = "com.tangdou")
 @EntityScan("com.tangdou.ihrm.company.dao")
 @EnableJpaRepositories(basePackages = "com.tangdou.ihrm.company.dao")
 public class CompanyApplication {

@@ -7,6 +7,7 @@
         <module>tangdou-design-mode</module>
         <module>tangdou-ihrm</module>
         <module>tangdou-common</module>
+        <module>tangdou-shiro</module>
     </modules>
     <groupId>com.tangdou</groupId>
     <artifactId>tangdou-parent</artifactId>
@@ -25,6 +26,10 @@
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <fastjson.version>1.2.67</fastjson.version>
         <mysql.version>5.1.35</mysql.version>
+        <activiti.version>7.0.0.Beta3</activiti.version>
+        <shiro.version>1.4.0-RC2</shiro.version>
+        <druid.version>1.1.21</druid.version>
+        <javaee.version>8.0</javaee.version>
     </properties>
 
     <dependencyManagement>
@@ -35,6 +40,13 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.activiti.cloud.dependencies</groupId>
+                <artifactId>activiti-cloud-dependencies</artifactId>
+                <version>${activiti.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -71,6 +83,21 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring-boot-web-starter</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
