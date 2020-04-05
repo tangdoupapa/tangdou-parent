@@ -5,3 +5,5 @@ spring:
     # 生成历史记录表
     db-history-used: true
     history-level: full
+    check-process-definitions: true
+    deployment-name: SpringAutoDeployment
