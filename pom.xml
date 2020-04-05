@@ -30,6 +30,7 @@
         <shiro.version>1.4.0-RC2</shiro.version>
         <druid.version>1.1.21</druid.version>
         <javaee.version>8.0</javaee.version>
+        <flowable.version>6.5.0</flowable.version>
     </properties>
 
     <dependencyManagement>
@@ -47,6 +48,11 @@
                 <version>${activiti.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>${flowable.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>

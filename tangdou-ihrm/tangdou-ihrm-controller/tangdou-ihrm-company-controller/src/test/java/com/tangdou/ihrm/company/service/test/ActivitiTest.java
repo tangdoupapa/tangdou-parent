@@ -1,20 +1,16 @@
 package com.tangdou.ihrm.company.service.test;
 
 import cn.hutool.core.io.IoUtil;
-import com.tangdou.common.base.util.SecurityUtil;
 import com.tangdou.ihrm.company.application.CompanyApplication;
-import org.activiti.engine.*;
-import org.activiti.engine.history.HistoricActivityInstance;
-import org.activiti.engine.repository.Deployment;
-import org.activiti.engine.repository.ProcessDefinition;
-import org.activiti.engine.runtime.ProcessInstance;
-import org.activiti.engine.task.Task;
+import org.flowable.engine.*;
+import org.flowable.engine.history.HistoricActivityInstance;
+import org.flowable.engine.repository.Deployment;
+import org.flowable.engine.repository.ProcessDefinition;
+import org.flowable.engine.runtime.ProcessInstance;
+import org.flowable.task.api.Task;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -31,7 +27,6 @@ import java.util.List;
  */
 @SpringBootTest(classes = CompanyApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
-@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class})
 public class ActivitiTest {
 
     private final String PROCESS_DEFINITION_KEY = "myProcess_1";
@@ -61,9 +56,6 @@ public class ActivitiTest {
     @Autowired
     private ProcessEngine processEngine;
 
-    @Autowired
-    private SecurityUtil securityUtil;
-
     /**
      * @Auther: tangdouopapa
      * @Description: 查看部署信息, 部署后变更的表： act_re_deployment,act_re_prodef,act_ge_bytearray
@@ -92,7 +84,6 @@ public class ActivitiTest {
                 .put("assignee2", "lisi").put("assignee3", "wangwu").build();*/
         //此处的params为全局变量 变更表： act_ge_bytearray  act_ru_variable
 //        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("myProcess_1", "1", params);
-        securityUtil.logInAs("salaboy");
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("myProcess_1", "1");
         System.out.println(processInstance.getId());
         System.out.println(processInstance.getName());
@@ -230,15 +221,14 @@ public class ActivitiTest {
      */
     @Test
     public void testClaimTask() {
-        securityUtil.logInAs("salaboy");
-        /*Task task = taskService.createTaskQuery()
-                .processDefinitionKey(PROCESS_DEFINITION_KEY)
-                .taskCandidateUser("zhangsan").singleResult();
-        taskService.claim(task.getId(), "zhangsan");*/
-
         Task task = taskService.createTaskQuery()
                 .processDefinitionKey(PROCESS_DEFINITION_KEY)
+                .taskCandidateUser("zhangsan").singleResult();
+        taskService.claim(task.getId(), "zhangsan");
+
+        /*Task task = taskService.createTaskQuery()
+                .processDefinitionKey(PROCESS_DEFINITION_KEY)
                 .taskAssignee("zhangsan").singleResult();
-        taskService.unclaim(task.getId());
+        taskService.unclaim(task.getId());*/
     }
 }
