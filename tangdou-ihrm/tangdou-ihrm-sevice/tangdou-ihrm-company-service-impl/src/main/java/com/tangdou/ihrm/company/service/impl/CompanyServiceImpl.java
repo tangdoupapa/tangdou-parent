@@ -12,5 +12,5 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
-public class CompanyServiceImpl extends BaseServiceImpl<CompanyRepository, Company, String> implements CompanyService {
+public class CompanyServiceImpl extends BaseServiceImpl<CompanyRepository, Company, Long> implements CompanyService {
 }

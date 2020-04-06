@@ -23,7 +23,7 @@ public class ResultUtil {
     }
 
     public static <T> Result<T> successData(T data) {
-        return DataResult.<T>builder().data(data).success(SUCCESS.success()).code(SUCCESS.code()).msg(SUCCESS.msg()).build();
+        return DataResult.<T>builder().data(data).success(SUCCESS.isSuccess()).code(SUCCESS.getCode()).msg(SUCCESS.getMsg()).build();
     }
 
     public static <T> Result<T> successPage(Page<T> page) {
@@ -35,7 +35,7 @@ public class ResultUtil {
     }
 
     public static Result fail(String msg) {
-        return Result.builder().success(FAIL.success()).code(FAIL.code()).msg(FAIL.msg()).build();
+        return Result.builder().success(FAIL.isSuccess()).code(FAIL.getCode()).msg(FAIL.getMsg()).build();
     }
 
     public static Result fail(Integer code, String message) {

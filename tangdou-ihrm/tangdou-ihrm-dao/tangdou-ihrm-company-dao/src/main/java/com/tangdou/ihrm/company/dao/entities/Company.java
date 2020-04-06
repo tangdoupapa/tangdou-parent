@@ -25,8 +25,7 @@ import java.util.Date;
 public class Company implements Serializable {
     private static final long serialVersionUID = 594829320797158219L;
     @Id
-    @Length(max = 64)
-    private String id;
+    private Long id;
 
     @ApiModelProperty("公司名称")
     private String name;

@@ -1,5 +1,6 @@
 package com.tangdou.common.base.enums;
 
+import com.alibaba.fastjson.annotation.JSONType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
  * 系统类返回码    9xxxx
  */
 @AllArgsConstructor
+@JSONType(serializeEnumAsJavaBean = true)
 public enum GeneralResultCode {
     //基础操作返回码
     SUCCESS(true, 10000, "操作成功！"),
@@ -26,15 +28,15 @@ public enum GeneralResultCode {
     @ApiModelProperty("返回信息")
     String msg;
 
-    public boolean success() {
+    public boolean isSuccess() {
         return success;
     }
 
-    public int code() {
+    public int getCode() {
         return code;
     }
 
-    public String msg() {
+    public String getMsg() {
         return msg;
     }
 

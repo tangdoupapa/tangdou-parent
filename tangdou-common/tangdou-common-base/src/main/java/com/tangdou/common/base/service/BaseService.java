@@ -23,5 +23,26 @@ public interface BaseService<R extends BaseRepository<T, ID>, T, ID> {
      */
     T update(T t);
 
+    /**
+     * 查询全部数据
+     *
+     * @return
+     */
     List<T> findAll();
+
+    /**
+     * 删除数据
+     *
+     * @param id
+     * @return
+     */
+    void delete(ID id);
+
+    /**
+     * @Auther: tangdouopapa
+     * @Description: 根据id查询实体
+     * @Param: T 保存的实体对象
+     * @return: T 返回保存的实体对象(含有id)
+     */
+    T findById(ID id);
 }

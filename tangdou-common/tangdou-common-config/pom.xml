@@ -3,17 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>tangdou-ihrm</artifactId>
+        <artifactId>tangdou-common</artifactId>
         <groupId>com.tangdou</groupId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tangdou-ihrm-controller</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>tangdou-ihrm-company-controller</module>
-    </modules>
+    <artifactId>tangdou-common-config</artifactId>
 
     <dependencies>
         <dependency>
@@ -21,20 +17,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.tangdou</groupId>
-            <artifactId>tangdou-common-config</artifactId>
-            <version>${parent.version}</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

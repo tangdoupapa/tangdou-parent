@@ -21,8 +21,7 @@
         <java.version>1.8</java.version>
         <springboot.version>2.2.2.RELEASE</springboot.version>
         <hutool.version>5.2.4</hutool.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <swagger.version>1.5.21</swagger.version>
+        <swagger.version>2.7.0</swagger.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <fastjson.version>1.2.67</fastjson.version>
         <mysql.version>5.1.35</mysql.version>
@@ -43,13 +42,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.activiti.cloud.dependencies</groupId>
-                <artifactId>activiti-cloud-dependencies</artifactId>
-                <version>${activiti.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
                 <groupId>org.flowable</groupId>
                 <artifactId>flowable-spring-boot-starter</artifactId>
                 <version>${flowable.version}</version>
@@ -63,16 +55,11 @@
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
             <dependency>

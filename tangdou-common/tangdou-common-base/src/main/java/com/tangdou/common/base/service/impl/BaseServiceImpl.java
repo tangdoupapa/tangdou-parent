@@ -30,4 +30,14 @@ public class BaseServiceImpl<R extends BaseRepository<T, ID>, T, ID> implements 
     public List<T> findAll() {
         return baseRepository.findAll();
     }
+
+    @Override
+    public void delete(ID id) {
+        baseRepository.deleteById(id);
+    }
+
+    @Override
+    public T findById(ID id) {
+        return baseRepository.findById(id).get();
+    }
 }
