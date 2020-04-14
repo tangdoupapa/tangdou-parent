@@ -2,4 +2,4 @@ spring:
   profiles:
     active: dev,druid,activiti
 server:
-  port: 8010
+  port: 9001

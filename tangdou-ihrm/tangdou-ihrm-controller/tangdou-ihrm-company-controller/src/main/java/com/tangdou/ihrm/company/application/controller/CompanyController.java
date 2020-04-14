@@ -15,11 +15,12 @@ import java.util.List;
 
 /**
  * @Auther: tangdouopapa
- * @Date: 2020/3/29 10:01
- * @Description:
+ * @Date: 2020/3/29 10:01S
  */
+@CrossOrigin
 @Api(value = "公司管理", tags = "公司管理")
-@RestController("/company")
+@RestController
+@RequestMapping(value = "/company")
 public class CompanyController {
 
     @Autowired
@@ -57,7 +58,7 @@ public class CompanyController {
     }
 
     @ApiOperation(value = "查询所有公司", notes = "查询所有公司")
-    @GetMapping("/find/all")
+    @GetMapping(value = "find/all")
     public Result<List<Company>> findAll() {
         return ResultUtil.successData(companyService.findAll());
     }
