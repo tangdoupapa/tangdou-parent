@@ -5,8 +5,11 @@ import com.tangdou.common.base.result.Result;
 import com.tangdou.common.base.util.IdWorker;
 import com.tangdou.common.base.util.ResultUtil;
 import com.tangdou.common.controller.BaseController;
+import com.tangdou.ihrm.company.application.response.DeptAllResponse;
 import com.tangdou.ihrm.company.dao.entities.Company;
+import com.tangdou.ihrm.company.dao.entities.Department;
 import com.tangdou.ihrm.company.service.CompanyService;
+import com.tangdou.ihrm.company.service.DepartmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +22,13 @@ import java.util.List;
  * @Date: 2020/3/29 10:01S
  */
 @CrossOrigin
-@Api(value = "公司管理", tags = "公司管理")
+@Api(value = "部门管理", tags = "部门管理")
 @RestController
-@RequestMapping(value = "/company")
-public class CompanyController extends BaseController {
+@RequestMapping(value = "/company/department")
+public class DepartmentController extends BaseController {
+
+    @Autowired
+    private DepartmentService departmentService;
 
     @Autowired
     private CompanyService companyService;
@@ -32,36 +38,39 @@ public class CompanyController extends BaseController {
 
     @ApiOperation(value = "新增公司", notes = "新增公司")
     @PostMapping
-    public GeneralResultCode save(@RequestBody Company company) {
-        company.setId(idWorker.nextIdToString());
-        companyService.save(company);
+    public GeneralResultCode save(@RequestBody Department department) {
+        department.setId(idWorker.nextIdToString());
+        department.setCompanyId(companyId);
+        departmentService.save(department);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "更新公司", notes = "更新公司")
     @PutMapping
-    public GeneralResultCode update(@RequestBody Company company) {
-        companyService.save(company);
+    public GeneralResultCode update(@RequestBody Department Department) {
+        departmentService.save(Department);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "删除公司", notes = "删除公司")
     @DeleteMapping("/{id}")
     public GeneralResultCode delete(@PathVariable("id") String id) {
-        companyService.delete(id);
+        departmentService.delete(id);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "查询公司", notes = "查询公司")
     @GetMapping("/{id}")
-    public Result<Company> findById(@PathVariable("id") String id) {
-        return ResultUtil.successData(companyService.findById(id));
+    public Result<Department> findById(@PathVariable("id") String id) {
+        return ResultUtil.successData(departmentService.findById(id));
     }
 
     @ApiOperation(value = "查询所有公司", notes = "查询所有公司")
     @GetMapping
-    public Result<List<Company>> findAll() {
-        return ResultUtil.successData(companyService.findAll());
+    public Result<DeptAllResponse> findAll() {
+        Company company = companyService.findById(companyId);
+        List<Department> depts = departmentService.findAll(companyId);
+        return ResultUtil.successData(new DeptAllResponse(company, depts));
     }
 
 }

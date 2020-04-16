@@ -17,6 +17,10 @@
             <artifactId>tangdou-ihrm-company-service-impl</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 

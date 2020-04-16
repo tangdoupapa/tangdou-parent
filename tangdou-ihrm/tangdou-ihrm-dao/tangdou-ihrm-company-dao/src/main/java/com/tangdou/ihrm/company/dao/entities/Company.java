@@ -1,31 +1,31 @@
 package com.tangdou.ihrm.company.dao.entities;
 
+import com.tangdou.common.base.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.context.annotation.Primary;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
 
+/**
+ * @Auther: tangdouopapa
+ * @Date: 2020/4/14 21:54
+ * @Description: saas企业管理
+ */
 @Entity
 @Table(name = "co_company")
 @ApiModel
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company implements Serializable {
+public class Company extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 594829320797158219L;
-    @Id
-    private Long id;
 
     @ApiModelProperty("公司名称")
     private String name;

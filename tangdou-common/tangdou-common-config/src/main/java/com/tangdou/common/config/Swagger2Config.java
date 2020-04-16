@@ -41,7 +41,7 @@ public class Swagger2Config {
                  //标题
                 .title("IHRM RESTful APIs")
                 .description("通过访问doc.html,实现接口测试、文档生成")
-                .termsOfServiceUrl("http://localhost:8080")
+                .termsOfServiceUrl("http://localhost:9001")
                 .contact(new Contact("tangdoupapa", "https://github.com/tangdoupapa/tangdou-parent.git", "fanyaoxuan@outlook.com"))
                 .version("1.0")
                 .build();

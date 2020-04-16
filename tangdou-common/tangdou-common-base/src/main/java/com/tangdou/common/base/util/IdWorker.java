@@ -88,6 +88,10 @@ public class IdWorker {
         return nextId;
     }
 
+    public synchronized String nextIdToString() {
+        return nextId()+"";
+    }
+
     private long tilNextMillis(final long lastTimestamp) {
         long timestamp = this.timeGen();
         while (timestamp <= lastTimestamp) {

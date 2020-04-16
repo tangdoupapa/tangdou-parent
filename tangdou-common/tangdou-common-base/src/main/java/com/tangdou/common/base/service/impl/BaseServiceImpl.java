@@ -3,6 +3,7 @@ package com.tangdou.common.base.service.impl;
 import com.tangdou.common.base.dao.BaseRepository;
 import com.tangdou.common.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
@@ -38,6 +39,13 @@ public class BaseServiceImpl<R extends BaseRepository<T, ID>, T, ID> implements 
 
     @Override
     public T findById(ID id) {
-        return baseRepository.findById(id).get();
+        return baseRepository.findById(id).orElse(null);
+    }
+
+    protected Specification<T> getSpec(String companyId) {
+        /**
+         * root: 对象数据   cb:构造查询条件
+         */
+        return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("companyId").as(String.class), companyId);
     }
 }

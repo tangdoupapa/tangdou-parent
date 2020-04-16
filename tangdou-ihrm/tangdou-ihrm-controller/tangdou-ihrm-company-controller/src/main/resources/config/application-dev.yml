@@ -11,10 +11,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  security:
-    user:
-      name: admin
-      password: 123
+#  security:
+#    user:
+#      name: admin
+#      password: 123
 logging:
   level:
     root: info

@@ -9,5 +9,5 @@ import com.tangdou.ihrm.company.dao.repository.CompanyRepository;
  * @Date: 2020/3/29 10:02
  * @Description:
  */
-public interface CompanyService extends BaseService<CompanyRepository, Company, Long> {
+public interface CompanyService extends BaseService<CompanyRepository, Company, String> {
 }
