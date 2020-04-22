@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tangdou-common-config</artifactId>
+    <artifactId>tangdou-common-base-dao</artifactId>
 
     <dependencies>
         <dependency>
