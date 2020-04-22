@@ -18,5 +18,5 @@ public abstract class BaseEntity implements Serializable {
 
     @ApiModelProperty("主键")
     @Id
-    private String id;
+    protected String id;
 }

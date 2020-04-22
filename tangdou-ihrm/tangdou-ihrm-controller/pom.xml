@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>tangdou-ihrm-company-controller</module>
+        <module>tangdou-ihrm-system-controller</module>
     </modules>
 
     <dependencies>
@@ -32,8 +33,8 @@
         </dependency>
         <dependency>
             <groupId>com.tangdou</groupId>
-            <artifactId>tangdou-common-config</artifactId>
-            <version>${parent.version}</version>
+            <artifactId>tangdou-common-base-dao</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.tangdou</groupId>

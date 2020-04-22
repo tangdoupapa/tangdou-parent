@@ -26,7 +26,7 @@ public enum GeneralResultCode {
     @ApiModelProperty("返回码")
     int code;
     @ApiModelProperty("返回信息")
-    String msg;
+    String message;
 
     public boolean isSuccess() {
         return success;
@@ -36,8 +36,8 @@ public enum GeneralResultCode {
         return code;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
 }

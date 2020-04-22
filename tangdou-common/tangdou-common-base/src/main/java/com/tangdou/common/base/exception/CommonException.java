@@ -12,7 +12,7 @@ public class CommonException extends RuntimeException {
     }
 
     public CommonException(GeneralResultCode resultCode) {
-        super(resultCode.getMsg());
+        super(resultCode.getMessage());
         this.code = resultCode;
     }
 }

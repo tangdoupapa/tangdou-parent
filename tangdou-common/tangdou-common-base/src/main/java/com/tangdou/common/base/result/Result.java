@@ -23,5 +23,5 @@ public class Result<T> implements Serializable {
     protected Integer code;
 
     @ApiModelProperty("返回携带消息")
-    protected String msg;
+    protected String message;
 }

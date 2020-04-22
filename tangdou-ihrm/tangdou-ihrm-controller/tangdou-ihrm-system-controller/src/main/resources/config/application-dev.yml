@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ihrm-company #指定服务名
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info

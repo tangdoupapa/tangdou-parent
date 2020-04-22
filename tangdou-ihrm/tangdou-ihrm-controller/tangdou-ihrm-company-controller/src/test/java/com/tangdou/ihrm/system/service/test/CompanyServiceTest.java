@@ -1,4 +1,4 @@
-package com.tangdou.ihrm.company.service.test;
+package com.tangdou.ihrm.system.service.test;
 
 import com.tangdou.ihrm.company.application.CompanyApplication;
 import com.tangdou.ihrm.company.service.CompanyService;

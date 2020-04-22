@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>tangdou-ihrm-company-dao</module>
+        <module>tangdou-ihrm-system-dao</module>
     </modules>
 
     <dependencies>
