@@ -7,12 +7,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @ApiModel("统一结果返回")
 @Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Result<T> {
+public class Result<T> implements Serializable {
 
     @ApiModelProperty("是否成功")
     protected boolean success;

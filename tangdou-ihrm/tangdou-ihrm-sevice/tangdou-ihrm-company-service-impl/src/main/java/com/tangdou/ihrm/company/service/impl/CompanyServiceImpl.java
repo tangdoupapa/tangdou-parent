@@ -1,6 +1,6 @@
 package com.tangdou.ihrm.company.service.impl;
 
-import com.tangdou.common.base.service.impl.BaseServiceImpl;
+import com.tangdou.common.service.impl.BaseServiceImpl;
 import com.tangdou.ihrm.company.dao.entities.Company;
 import com.tangdou.ihrm.company.dao.repository.CompanyRepository;
 import com.tangdou.ihrm.company.service.CompanyService;

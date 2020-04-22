@@ -22,8 +22,20 @@ public class ResultUtil {
         }
     }
 
+    public static <T> Result<T> successData(T data, int code, String message) {
+        return DataResult.<T>builder().data(data).success(SUCCESS.isSuccess()).code(code).msg(message).build();
+    }
+
+    public static <T> Result<T> successData(T data, String message) {
+        return successData(data, SUCCESS.getCode(), message);
+    }
+
     public static <T> Result<T> successData(T data) {
-        return DataResult.<T>builder().data(data).success(SUCCESS.isSuccess()).code(SUCCESS.getCode()).msg(SUCCESS.getMsg()).build();
+        return successData(data, SUCCESS.getMsg());
+    }
+
+    public static Result successMessage(String message) {
+        return Result.builder().success(SUCCESS.isSuccess()).code(SUCCESS.getCode()).msg(message).build();
     }
 
     public static <T> Result<T> successPage(Page<T> page) {

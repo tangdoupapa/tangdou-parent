@@ -1,6 +1,6 @@
 package com.tangdou.ihrm.company.dao.repository;
 
-import com.tangdou.common.base.dao.BaseRepository;
+import com.tangdou.common.dao.BaseRepository;
 import com.tangdou.ihrm.company.dao.entities.Department;
 
 /**

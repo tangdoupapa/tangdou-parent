@@ -1,11 +1,10 @@
 package com.tangdou.ihrm.company.service.impl;
 
-import com.tangdou.common.base.service.impl.BaseServiceImpl;
+import com.tangdou.common.service.impl.BaseServiceImpl;
 import com.tangdou.ihrm.company.dao.entities.Department;
 import com.tangdou.ihrm.company.dao.repository.DepartmentRepository;
 import com.tangdou.ihrm.company.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

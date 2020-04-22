@@ -1,14 +1,11 @@
 package com.tangdou.common.base.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.ToStringSerializer;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 /**
  * @Auther: tangdouopapa
@@ -17,7 +14,7 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 @Data
-public abstract class BaseEntity {
+public abstract class BaseEntity implements Serializable {
 
     @ApiModelProperty("主键")
     @Id

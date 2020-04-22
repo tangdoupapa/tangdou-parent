@@ -22,6 +22,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.tangdou</groupId>
+                <artifactId>tangdou-common-config</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tangdou</groupId>
                 <artifactId>tangdou-common-base</artifactId>
                 <version>${parent.version}</version>
             </dependency>

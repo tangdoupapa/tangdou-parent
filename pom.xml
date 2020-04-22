@@ -8,6 +8,7 @@
         <module>tangdou-ihrm</module>
         <module>tangdou-common</module>
         <module>tangdou-shiro</module>
+        <module>tangdou-spring-cloud-study</module>
     </modules>
     <groupId>com.tangdou</groupId>
     <artifactId>tangdou-parent</artifactId>
@@ -16,31 +17,51 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <activiti.version>7.0.0.Beta3</activiti.version>
+        <druid.version>1.1.21</druid.version>
+        <fastjson.version>1.2.67</fastjson.version>
+        <flowable.version>6.5.0</flowable.version>
+        <hutool.version>5.2.4</hutool.version>
+        <java.version>1.8</java.version>
+        <javaee.version>8.0</javaee.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>1.8</java.version>
-        <springboot.version>2.2.2.RELEASE</springboot.version>
-        <hutool.version>5.2.4</hutool.version>
+        <mysql.version>5.1.35</mysql.version>
+        <shiro.version>1.4.0-RC2</shiro.version>
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+        <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
         <swagger.version>2.7.0</swagger.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
-        <fastjson.version>1.2.67</fastjson.version>
-        <mysql.version>5.1.35</mysql.version>
-        <activiti.version>7.0.0.Beta3</activiti.version>
-        <shiro.version>1.4.0-RC2</shiro.version>
-        <druid.version>1.1.21</druid.version>
-        <javaee.version>8.0</javaee.version>
-        <flowable.version>6.5.0</flowable.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring boot 依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${springboot.version}</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- spring cloud 依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud 依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.flowable</groupId>
                 <artifactId>flowable-spring-boot-starter</artifactId>
@@ -100,6 +121,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

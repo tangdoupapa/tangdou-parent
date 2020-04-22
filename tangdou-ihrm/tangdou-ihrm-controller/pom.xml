@@ -20,6 +20,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -32,6 +33,11 @@
         <dependency>
             <groupId>com.tangdou</groupId>
             <artifactId>tangdou-common-config</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tangdou</groupId>
+            <artifactId>tangdou-common-base-web</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>

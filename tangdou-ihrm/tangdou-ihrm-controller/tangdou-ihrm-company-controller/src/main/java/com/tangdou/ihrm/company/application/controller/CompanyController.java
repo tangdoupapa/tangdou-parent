@@ -2,9 +2,9 @@ package com.tangdou.ihrm.company.application.controller;
 
 import com.tangdou.common.base.enums.GeneralResultCode;
 import com.tangdou.common.base.result.Result;
-import com.tangdou.common.base.util.IdWorker;
+import com.tangdou.common.util.IdWorker;
 import com.tangdou.common.base.util.ResultUtil;
-import com.tangdou.common.controller.BaseController;
+import com.tangdou.common.base.web.controller.BaseController;
 import com.tangdou.ihrm.company.dao.entities.Company;
 import com.tangdou.ihrm.company.service.CompanyService;
 import io.swagger.annotations.Api;
