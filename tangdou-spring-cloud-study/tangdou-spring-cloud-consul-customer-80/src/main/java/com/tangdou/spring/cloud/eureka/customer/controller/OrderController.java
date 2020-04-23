@@ -20,7 +20,7 @@ public class OrderController {
 
 //    public static final String PAYENT_URL = "http://localhost:8001";
 
-    public static final String PAYENT_URL = "http://TANGDOU-SPRING-CLOUD-EUREKA-PROVIDER-8001";
+    public static final String PAYENT_URL = "http://TANGDOU-SPRING-CLOUD-CONSUL-PROVIDER-8001";
     @Resource
     private RestTemplate restTemplate;
 

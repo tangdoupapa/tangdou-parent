@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: tangdou-spring-cloud-eureka-customer-80
+    name: tangdou-spring-cloud-consul-customer-80
   cloud:
     consul:
       host: localhost
