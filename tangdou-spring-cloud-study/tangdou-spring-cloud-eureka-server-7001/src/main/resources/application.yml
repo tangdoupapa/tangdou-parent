@@ -5,8 +5,12 @@ eureka:
     fetch-registry: false
     register-with-eureka: false
     service-url:
-#      defaultZone: http://www.eureka7001.com:7001/eureka/  # 单机是使用自己的url
-      defaultZone: http://www.eureka7002.com:7002/eureka/   #联机时需要多个互指
+      defaultZone: http://www.eureka7001.com:7001/eureka/  # 单机是使用自己的url
+  #      defaultZone: http://www.eureka7002.com:7002/eureka/   #联机时需要多个互指
   instance:
     hostname: www.eureka7001.com
     prefer-ip-address: true
+  server:
+    # 关闭自我保护，当服务不可用时立即剔除
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000

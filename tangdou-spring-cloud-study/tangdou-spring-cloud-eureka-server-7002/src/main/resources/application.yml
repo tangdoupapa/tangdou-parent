@@ -9,3 +9,7 @@ eureka:
   instance:
     hostname: www.eureka7002.com
     prefer-ip-address: true
+  server:
+    # 关闭自我保护，当服务不可用时立即剔除
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000

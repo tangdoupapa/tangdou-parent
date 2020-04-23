@@ -6,9 +6,12 @@ import com.tangdou.common.base.util.ResultUtil;
 import com.tangdou.spring.cloud.service.PaymentService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Payment)表控制层
@@ -29,6 +32,9 @@ public class PaymentController {
     @Value("${server.port}")
     private int port;
 
+    @Resource
+    private DiscoveryClient discoveryClient;
+
 
     /**
      * 通过主键查询单条数据
@@ -48,21 +54,20 @@ public class PaymentController {
 
         return ResultUtil.successData(payment, "insert success");
     }
-/*
+
     @GetMapping("discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();
         services.forEach(service -> {
             System.out.println("----service" + service);
         });
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        List<ServiceInstance> instances = discoveryClient.getInstances("TANGDOU-SPRING-CLOUD-EUREKA-PROVIDER-8001");
         for (ServiceInstance instance : instances) {
             System.out.println(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
-            ;
         }
 
         return this.discoveryClient;
-    }*/
+    }
 
     /*@GetMapping("lb")
     public String getPaymentLB() {
