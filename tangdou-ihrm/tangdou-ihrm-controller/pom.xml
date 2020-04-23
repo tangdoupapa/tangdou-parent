@@ -39,7 +39,7 @@
         <dependency>
             <groupId>com.tangdou</groupId>
             <artifactId>tangdou-common-base-web</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

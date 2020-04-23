@@ -2,9 +2,9 @@ package com.tangdou.ihrm.system.application.controller;
 
 import com.tangdou.common.base.enums.GeneralResultCode;
 import com.tangdou.common.base.result.Result;
-import com.tangdou.common.base.util.IdWorker;
 import com.tangdou.common.base.util.ResultUtil;
-import com.tangdou.common.controller.BaseController;
+import com.tangdou.common.base.web.controller.BaseController;
+import com.tangdou.common.util.IdWorker;
 import com.tangdou.ihrm.system.application.request.UserPageRequest;
 import com.tangdou.ihrm.system.dao.entities.User;
 import com.tangdou.ihrm.system.service.UserService;

@@ -1,7 +1,7 @@
 package com.tangdou.ihrm.system.service;
 
 import com.tangdou.common.base.request.PagerRequest;
-import com.tangdou.common.base.service.BaseService;
+import com.tangdou.common.service.BaseService;
 import com.tangdou.ihrm.system.dao.entities.User;
 import com.tangdou.ihrm.system.dao.repository.UserRepository;
 import org.springframework.data.domain.Page;

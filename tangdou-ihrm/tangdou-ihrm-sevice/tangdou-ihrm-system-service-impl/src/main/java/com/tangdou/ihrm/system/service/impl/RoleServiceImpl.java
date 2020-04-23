@@ -1,6 +1,6 @@
 package com.tangdou.ihrm.system.service.impl;
 
-import com.tangdou.common.base.service.impl.BaseServiceImpl;
+import com.tangdou.common.service.impl.BaseServiceImpl;
 import com.tangdou.ihrm.system.dao.entities.Role;
 import com.tangdou.ihrm.system.dao.repository.RoleRepository;
 import com.tangdou.ihrm.system.service.RoleService;

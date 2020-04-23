@@ -1,6 +1,6 @@
 package com.tangdou.ihrm.system.service.impl;
 
-import com.tangdou.common.base.service.impl.BaseServiceImpl;
+import com.tangdou.common.service.impl.BaseServiceImpl;
 import com.tangdou.ihrm.system.dao.entities.Permission;
 import com.tangdou.ihrm.system.dao.repository.PermissionRepository;
 import com.tangdou.ihrm.system.service.PermissionService;
