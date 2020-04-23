@@ -1,6 +1,9 @@
 package com.tangdou.common.service;
 
+import com.tangdou.common.base.request.PagerRequest;
 import com.tangdou.common.dao.BaseRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
@@ -45,4 +48,20 @@ public interface BaseService<R extends BaseRepository<T, ID>, T, ID> {
      * @return: T 返回保存的实体对象(含有id)
      */
     T findById(ID id);
+
+    /**
+     * @Auther: tangdouopapa
+     * @Description: 查询分页数据
+     * @Param: pagerRequest 前端分页参数
+     * @return: Page<T> 返回分页数据
+     */
+    Page<T> findPage(PagerRequest pagerRequest);
+
+    /**
+     * @Auther: tangdouopapa
+     * @Description: 查询分页数据
+     * @Param: pagerRequest 前端分页参数
+     * @return: Page<T> 返回分页数据
+     */
+    Page<T> findPage(PagerRequest pagerRequest, Specification<T> specification);
 }
