@@ -9,19 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tangdou-spring-cloud-none-provider-8001</artifactId>
+    <artifactId>tangdou-spring-cloud-eureka-server-7002</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.tangdou</groupId>
-            <artifactId>tangdou-common-base-web</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tangdou</groupId>
-            <artifactId>tangdou-common-base-dao</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <version>2.2.1.RELEASE</version>
         </dependency>
     </dependencies>
+
 
 </project>

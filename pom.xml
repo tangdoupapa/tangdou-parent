@@ -24,6 +24,7 @@
         <hutool.version>5.2.4</hutool.version>
         <java.version>1.8</java.version>
         <javaee.version>8.0</javaee.version>
+        <jersey.version>2.25.1</jersey.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mysql.version>5.1.35</mysql.version>
@@ -112,6 +113,11 @@
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>${javaee.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>${jersey.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

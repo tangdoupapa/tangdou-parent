@@ -5,6 +5,7 @@ import com.tangdou.common.base.result.Result;
 import com.tangdou.common.base.util.ResultUtil;
 import com.tangdou.spring.cloud.service.PaymentService;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +26,9 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    @Value("${server.port}")
+    private int port;
+
 
     /**
      * 通过主键查询单条数据
@@ -35,14 +39,13 @@ public class PaymentController {
     @GetMapping("get/{id}")
     public Result<Payment> selectOne(@PathVariable("id") String id) {
         Payment payment = this.paymentService.findById(id);
-        return ResultUtil.successData(payment, "select success 8001!");
+        return ResultUtil.successData(payment, "port=" + port);
     }
 
     @PostMapping("create")
     public Result<Payment> create(@RequestBody Payment payment) {
         Payment insert = this.paymentService.save(payment);
-        System.out.println(insert);
-        System.out.println("1234567890");
+
         return ResultUtil.successData(payment, "insert success");
     }
 /*

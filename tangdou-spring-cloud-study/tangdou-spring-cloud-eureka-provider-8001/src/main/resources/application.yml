@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev,druid
   application:
-    name: tangdou-spring-cloud-provider-8001
+    name: tangdou-spring-cloud-eureka-provider-8001
   jpa:
     database: MySQL
     show-sql: true
@@ -22,3 +22,16 @@ logging:
     root: info
 server:
   port: 8001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://www.eureka7001.com:7001/eureka/,http://www.eureka7002.com:7002/eureka/
+  instance:
+    # 不配置，使用自动生成的实例id,在微服务集群中此处的instance-id必须是不同的才能构成集群
+    # instance-id: ${spring.application.name}:${random.value}
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1
