@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev,druid
+  application:
+    name: tangdou-spring-cloud-eureka-provider-8001
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info
+server:
+  port: 8001

@@ -11,3 +11,8 @@ eureka:
       defaultZone: http://www.eureka7001.com:7001/eureka/,http://www.eureka7002.com:7002/eureka/
     fetch-registry: true
     register-with-eureka: true
+  instance:
+    # eureka server 等待时间上线
+    lease-expiration-duration-in-seconds: 2
+    # 发送心跳时间间隔
+    lease-renewal-interval-in-seconds: 1

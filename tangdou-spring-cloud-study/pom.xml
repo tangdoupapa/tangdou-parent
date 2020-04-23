@@ -14,6 +14,8 @@
     <modules>
         <module>tangdou-spring-cloud-none-provider-8001</module>
         <module>tangdou-spring-cloud-none-customer-80</module>
+        <module>tangdou-spring-cloud-consul-customer-80</module>
+        <module>tangdou-spring-cloud-consul-provider-8001</module>
         <module>tangdou-spring-cloud-eureka-customer-80</module>
         <module>tangdou-spring-cloud-eureka-provider-8001</module>
         <module>tangdou-spring-cloud-eureka-server-7001</module>
