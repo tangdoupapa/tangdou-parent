@@ -3,6 +3,8 @@ workspace
 .classpath
 *.iml
 *.project
-.setting
+.setting/
 .classpath
 .factorypath
+target/
+.idea/
