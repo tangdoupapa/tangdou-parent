@@ -23,7 +23,7 @@ public class ResultUtil {
     }
 
     public static <T> Result<T> successData(T data, int code, String message) {
-        return DataResult.<T>builder().data(data).success(SUCCESS.isSuccess()).code(code).msg(message).build();
+        return DataResult.<T>builder().data(data).success(SUCCESS.isSuccess()).code(code).message(message).build();
     }
 
     public static <T> Result<T> successData(T data, String message) {
@@ -31,11 +31,11 @@ public class ResultUtil {
     }
 
     public static <T> Result<T> successData(T data) {
-        return successData(data, SUCCESS.getMsg());
+        return successData(data, SUCCESS.getMessage());
     }
 
     public static Result successMessage(String message) {
-        return Result.builder().success(SUCCESS.isSuccess()).code(SUCCESS.getCode()).msg(message).build();
+        return Result.builder().success(SUCCESS.isSuccess()).code(SUCCESS.getCode()).message(message).build();
     }
 
     public static <T> Result<T> successPage(Page<T> page) {
@@ -47,11 +47,11 @@ public class ResultUtil {
     }
 
     public static Result fail(String msg) {
-        return Result.builder().success(FAIL.isSuccess()).code(FAIL.getCode()).msg(FAIL.getMsg()).build();
+        return Result.builder().success(FAIL.isSuccess()).code(FAIL.getCode()).message(FAIL.getMessage()).build();
     }
 
     public static Result fail(Integer code, String message) {
-        return Result.builder().success(false).code(code).msg(message).build();
+        return Result.builder().success(false).code(code).message(message).build();
     }
 
 

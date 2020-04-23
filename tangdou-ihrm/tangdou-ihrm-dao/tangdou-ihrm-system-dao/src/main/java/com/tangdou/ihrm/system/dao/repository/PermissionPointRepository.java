@@ -1,7 +1,7 @@
 package com.tangdou.ihrm.system.dao.repository;
 
 
-import com.tangdou.common.base.dao.BaseRepository;
+import com.tangdou.common.dao.BaseRepository;
 import com.tangdou.ihrm.system.dao.entities.PermissionPoint;
 
 /**

@@ -12,8 +12,8 @@
     <artifactId>tangdou-spring-cloud-study</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>tangdou-spring-cloud-provider-8001</module>
-        <module>tangdou-spring-cloud-customer-80</module>
+        <module>tangdou-spring-cloud-none-provider-8001</module>
+        <module>tangdou-spring-cloud-none-customer-80</module>
         <module>tangdou-spring-cloud-eureka-provider-8001</module>
         <module>tangdou-spring-cloud-eureka-server-7001</module>
     </modules>
