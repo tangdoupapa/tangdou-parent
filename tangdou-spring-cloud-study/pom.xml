@@ -20,6 +20,8 @@
         <module>tangdou-spring-cloud-eureka-provider-8001</module>
         <module>tangdou-spring-cloud-eureka-server-7001</module>
         <module>tangdou-spring-cloud-eureka-server-7002</module>
+        <module>tangdou-spring-cloud-feign-customer-80</module>
+        <module>tangdou-spring-cloud-hystrix-provider-8001</module>
     </modules>
 
     <dependencies>

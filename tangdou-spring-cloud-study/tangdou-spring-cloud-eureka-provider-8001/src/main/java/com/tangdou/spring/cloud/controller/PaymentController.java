@@ -45,6 +45,12 @@ public class PaymentController {
     @GetMapping("get/{id}")
     public Result<Payment> selectOne(@PathVariable("id") String id) {
         Payment payment = this.paymentService.findById(id);
+        //超时设置,feign超时测试
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return ResultUtil.successData(payment, "port=" + port);
     }
 
