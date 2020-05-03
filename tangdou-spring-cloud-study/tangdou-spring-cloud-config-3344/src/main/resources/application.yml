@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: tangdou-spring-cloud-gateway-9527
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/tangdoupapa/tangdou-parent.git
+          search-paths:
+            - tangdou-spring-cloud-study/spring-cloud-config
+      label: master
+  rabbitmq:
+    addresses: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka7001.com:7001/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    # eureka server 等待时间上线
+    lease-expiration-duration-in-seconds: 2
+    # 发送心跳时间间隔
+    lease-renewal-interval-in-seconds: 1
+server:
+  port: 3344

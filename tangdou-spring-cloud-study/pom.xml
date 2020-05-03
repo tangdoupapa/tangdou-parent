@@ -15,6 +15,8 @@
         <module>tangdou-spring-cloud-none-provider-8001</module>
         <module>tangdou-spring-cloud-none-customer-80</module>
         <module>tangdou-spring-cloud-config-3344</module>
+        <module>tangdou-spring-cloud-config-customer-3355</module>
+        <module>tangdou-spring-cloud-config-customer-3366</module>
         <module>tangdou-spring-cloud-consul-customer-80</module>
         <module>tangdou-spring-cloud-consul-provider-8001</module>
         <module>tangdou-spring-cloud-eureka-customer-80</module>
