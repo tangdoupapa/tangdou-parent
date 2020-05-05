@@ -3,6 +3,11 @@ spring:
     active: dev
   application:
     name: tangdou-spring-cloud-eureka-customer-80
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1  #采样率，0-1 1标识全部采样
 server:
   port: 80
 eureka:
@@ -13,6 +18,6 @@ eureka:
     register-with-eureka: true
   instance:
     # eureka server 等待时间上线
-    lease-expiration-duration-in-seconds: 2
+    lease-expiration-duration-in-seconds: 5
     # 发送心跳时间间隔
     lease-renewal-interval-in-seconds: 1

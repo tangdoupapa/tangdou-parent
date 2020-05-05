@@ -13,6 +13,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1  #采样率，0-1 1标识全部采样
 #  security:
 #    user:
 #      name: admin
@@ -31,7 +36,7 @@ eureka:
   instance:
     # 不配置，使用自动生成的实例id,在微服务集群中此处的instance-id必须是不同的才能构成集群
     # instance-id: ${spring.application.name}:${random.value}
-    ip-address: 192.168.198.239  # 这里查看服务详情使用
+    ip-address: 192.168.2.6  # 这里查看服务详情使用
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 2
     lease-renewal-interval-in-seconds: 1
