@@ -28,6 +28,9 @@
         <module>tangdou-spring-cloud-hystrix-dashboard-9001</module>
         <module>tangdou-spring-cloud-hystrix-provider-8001</module>
         <module>tangdou-spring-cloud-hystrix-customer-80</module>
+        <module>tangdou-spring-cloud-rabbitmq-customer-80</module>
+        <module>tangdou-spring-cloud-rabbitmq-customer-81</module>
+        <module>tangdou-spring-cloud-rabbitmq-provider-8001</module>
     </modules>
 
     <dependencies>

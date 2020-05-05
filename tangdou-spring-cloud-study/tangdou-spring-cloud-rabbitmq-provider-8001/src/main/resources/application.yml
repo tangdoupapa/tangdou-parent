@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: dev,druid
+  application:
+    name: tangdou-spring-cloud-rabbitmq-provider
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:  # 设置rabbitmq的相关的环境配置
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        output:
+          destination: studyExchange
+          content-type: application/json
+          binder: defaultRabbit
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info
+server:
+  port: 8001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://www.eureka7001.com:7001/eureka/,http://www.eureka7002.com:7002/eureka/
+  instance:
+    # 不配置，使用自动生成的实例id,在微服务集群中此处的instance-id必须是不同的才能构成集群
+    # instance-id: ${spring.application.name}:${random.value}
+    ip-address: 192.168.198.239  # 这里查看服务详情使用
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1
