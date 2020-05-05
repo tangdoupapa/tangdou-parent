@@ -28,3 +28,8 @@ eureka:
     lease-renewal-interval-in-seconds: 1
 server:
   port: 3344
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
