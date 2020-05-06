@@ -1,0 +1,67 @@
+# 配置中包含了两种配置方式，选择一种配置方式即可
+spring:
+  datasource:
+    # 数据库配置1
+    url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=UTC&nullCatalogMeansCurrent=true
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 数据库配置2
+      db-type: mysql
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=UTC&nullCatalogMeansCurrent=true
+      username: root
+      password: root
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+      #最大连接池数量 maxIdle已经不再使用
+      maxActive: 20
+      #初始化时建立物理连接的个数
+      initialSize: 1
+      #获取连接时最大等待时间，单位毫秒
+      maxWait: 60000
+      #最小连接池数量
+      minIdle: 1
+      #既作为检测的间隔时间又作为testWhileIdel执行的依据
+      timeBetweenEvictionRunsMillis: 60000
+      #销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接
+      minEvictableIdleTimeMillis: 300000
+      #用来检测连接是否有效的sql 必须是一个查询语句
+      #mysql中为 select 'x'
+      #oracle中为 select 1 from dual
+      validationQuery: select 'x'
+      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      testWhileIdle: true
+      #申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      testOnBorrow: false
+      #归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      testOnReturn: false
+      # 是否缓存preparedStatement，也就是PSCache  官方建议MySQL下建议关闭   个人建议如果想用SQL防火墙 建议打开
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      #当值大于0时poolPreparedStatements会自动修改为true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      useGlobalDataSourceStat: true
+      #基础监控配置
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        session-stat-enable: true
+        session-stat-max-count: 100
+      #设置视图拦截,访问druid监控页的账号和密码,默认没有
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        #设置监控页面的登录名和密码
+        login-username: admin
+        login-password: 123
+        #白名单ip
+        allow: 127.0.0.1
+      #黑名单
+      #deny: 192.168.1.100

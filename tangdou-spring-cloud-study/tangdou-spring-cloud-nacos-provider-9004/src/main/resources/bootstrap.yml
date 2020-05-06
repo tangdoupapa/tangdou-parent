@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: druid,dev  # 配置文件的加载顺序按找顺序执行
+  application:
+    name: tangdou-spring-cloud-nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8081
+      #        server-addr: localhost:8848
+      config:
+        file-extension: yaml
+#        server-addr: localhost:8848
+        server-addr: localhost:8081
+#        group: 9004_group
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 9004

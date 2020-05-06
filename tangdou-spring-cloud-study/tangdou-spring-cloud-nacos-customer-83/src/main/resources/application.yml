@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tangdou-spring-cloud-nacos-customer-83
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8081
+#        server-addr: localhost:8848
+server:
+  port: 83

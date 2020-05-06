@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: dev,druid
+  application:
+    name: tangdou-spring-cloud-nacos-provider
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8081
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info
+server:
+  port: 9001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
