@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev,druid
   application:
-    name: tangdou-spring-cloud-nacos-provider
+    name: tangdou-spring-cloud-nacos-config
   jpa:
     database: MySQL
     show-sql: true
