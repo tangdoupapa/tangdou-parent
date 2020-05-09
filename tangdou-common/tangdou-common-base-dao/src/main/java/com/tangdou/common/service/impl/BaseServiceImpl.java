@@ -29,6 +29,7 @@ import java.util.stream.Stream;
  * @Description:
  */
 public class BaseServiceImpl<R extends BaseRepository<T, ID>, T, ID> implements BaseService<R, T, ID> {
+    // todo 从spring容器中获取idworker
 
     @Autowired
     BaseRepository<T, ID> baseRepository;

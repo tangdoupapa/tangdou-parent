@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: dev,druid
+  application:
+    name: tangdou-spring-cloud-seata-storage
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8081
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info
+server:
+  port: 8003
+feign:
+  hystrix:
+    enabled: false
