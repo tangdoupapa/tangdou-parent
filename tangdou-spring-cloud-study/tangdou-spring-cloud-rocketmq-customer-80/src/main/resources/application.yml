@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tangdou-spring-cloud-rocketmq-customer-80
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      bindings:
+        input:
+          destination: output
+          content-type: application/json
+          group: my-test-group
+server:
+  port: 80

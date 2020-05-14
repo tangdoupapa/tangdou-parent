@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: dev,druid
+  application:
+    name: tangdou-spring-cloud-rabbitmq-provider
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      binders:
+        output:
+          destination: stream-test-topic
+          content-type: application/json
+          group: my-test-group
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+logging:
+  level:
+    root: info
+server:
+  port: 8001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://www.eureka7001.com:7001/eureka/
+  instance:
+    # 不配置，使用自动生成的实例id,在微服务集群中此处的instance-id必须是不同的才能构成集群
+    # instance-id: ${spring.application.name}:${random.value}
+    ip-address: 192.168.198.239  # 这里查看服务详情使用
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1

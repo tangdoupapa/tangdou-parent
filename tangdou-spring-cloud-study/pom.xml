@@ -36,6 +36,9 @@
         <module>tangdou-spring-cloud-rabbitmq-customer-80</module>
         <module>tangdou-spring-cloud-rabbitmq-customer-81</module>
         <module>tangdou-spring-cloud-rabbitmq-provider-8001</module>
+        <module>tangdou-spring-cloud-rocketmq-customer-80</module>
+        <module>tangdou-spring-cloud-rocketmq-customer-81</module>
+        <module>tangdou-spring-cloud-rocketmq-provider-8001</module>
         <module>tangdou-spring-cloud-seata-order-8001</module>
         <module>tangdou-spring-cloud-seata-account-8002</module>
         <module>tangdou-spring-cloud-seata-storage-8003</module>
