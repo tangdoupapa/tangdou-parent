@@ -1,5 +1,6 @@
 package com.tangdou.ihrm.system.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tangdou.common.base.entity.BaseEntity;
 import lombok.Getter;
@@ -10,8 +11,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "pe_role")
+@TableName(value = "pe_role")
 @Getter
 @Setter
 public class Role extends BaseEntity implements Serializable {

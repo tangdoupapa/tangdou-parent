@@ -1,9 +1,10 @@
 package com.tangdou.common.base.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
@@ -17,6 +18,6 @@ import java.io.Serializable;
 public abstract class BaseEntity implements Serializable {
 
     @ApiModelProperty("主键")
-    @Id
+    @TableId(type = IdType.ASSIGN_ID)
     protected String id;
 }

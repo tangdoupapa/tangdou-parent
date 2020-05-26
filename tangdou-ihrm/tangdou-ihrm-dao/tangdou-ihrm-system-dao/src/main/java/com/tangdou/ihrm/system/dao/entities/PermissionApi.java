@@ -1,5 +1,6 @@
 package com.tangdou.ihrm.system.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangdou.common.base.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +13,7 @@ import java.io.Serializable;
 /**
  *
  */
-@Entity
-@Table(name = "pe_permission_api")
+@TableName(value = "pe_permission_api")
 @Getter
 @Setter
 public class PermissionApi extends BaseEntity implements Serializable {

@@ -1,5 +1,6 @@
 package com.tangdou.ihrm.company.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangdou.common.base.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,9 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,11 +17,10 @@ import java.util.Date;
  * @Description: //saas部门管理
  */
 @ApiModel
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "co_department")
+@TableName(value = "co_department")
 public class Department extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -9084332495284489553L;
 

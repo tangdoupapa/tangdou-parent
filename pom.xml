@@ -24,9 +24,11 @@
         <hutool.version>5.2.4</hutool.version>
         <java.version>1.8</java.version>
         <javaee.version>8.0</javaee.version>
+        <javax.el.version>3.0.1-b08</javax.el.version>
         <jersey.version>2.25.1</jersey.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <mybatis.plus.boot.starter>3.3.1.tmp</mybatis.plus.boot.starter>
         <mysql.version>5.1.35</mysql.version>
         <netty.version>0.9.2.RELEASE</netty.version>
         <seata.version>1.1.0</seata.version>
@@ -125,11 +127,26 @@
                 <artifactId>jersey-server</artifactId>
                 <version>${jersey.version}</version>
             </dependency>
-            <!-- gate 启动失败问题 -->
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>${javax.el.version}</version>
+            </dependency>
+            <!-- gateway 启动失败问题 -->
             <dependency>
                 <groupId>io.projectreactor.netty</groupId>
                 <artifactId>reactor-netty</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot.starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis.plus.boot.starter}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

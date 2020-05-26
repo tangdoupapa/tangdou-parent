@@ -1,6 +1,6 @@
 package com.tangdou.ihrm.system.application.request;
 
-import com.tangdou.common.base.request.PagerRequest;
+import com.tangdou.common.request.PagerRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

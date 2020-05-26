@@ -1,5 +1,6 @@
 package com.tangdou.common.util;
 
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import org.springframework.stereotype.Component;
 
 import java.lang.management.ManagementFactory;
@@ -8,7 +9,7 @@ import java.net.NetworkInterface;
 
 //雪花算法代码实现
 @Component
-public class IdWorker {
+public class IdWorker implements IdentifierGenerator {
     // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
     private final static long twepoch = 1288834974657L;
     // 机器标识位数
@@ -147,5 +148,10 @@ public class IdWorker {
             System.out.println(" getDatacenterId: " + e.getMessage());
         }
         return id;
+    }
+
+    @Override
+    public Number nextId(Object entity) {
+        return null;
     }
 }

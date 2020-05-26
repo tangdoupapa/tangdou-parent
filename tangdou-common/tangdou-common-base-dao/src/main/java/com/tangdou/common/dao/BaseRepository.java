@@ -1,7 +1,8 @@
 package com.tangdou.common.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.io.Serializable;
 
 /**
  * @Auther: tangdouopapa
@@ -17,5 +18,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  *
  *  ID - 对应的id的数据类型
  */
-public interface BaseRepository<T,ID> extends JpaRepository<T,ID>, JpaSpecificationExecutor<T> {
+public interface BaseRepository<T extends Serializable,ID> extends BaseMapper<T> {
 }

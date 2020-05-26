@@ -1,10 +1,11 @@
-package com.tangdou.common.base.request;
+package com.tangdou.common.request;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class PagerRequest {
+public class PagerRequest<T> extends Page<T> {
     @ApiModelProperty("当前页")
     private Integer currentPage = 1;
 

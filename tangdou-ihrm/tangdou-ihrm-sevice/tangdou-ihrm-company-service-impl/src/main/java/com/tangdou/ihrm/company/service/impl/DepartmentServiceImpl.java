@@ -21,7 +21,6 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentRepository,
     private DepartmentRepository departmentRepository;
 
     public List<Department> findAll(String companyId) {
-
-        return departmentRepository.findAll(getSpec(companyId));
+        return list(getSpec(companyId));
     }
 }

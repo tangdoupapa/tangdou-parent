@@ -1,11 +1,15 @@
 package com.tangdou.ihrm.system.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tangdou.common.base.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -14,8 +18,7 @@ import java.util.Set;
 /**
  * 用户实体类
  */
-@Entity
-@Table(name = "bs_user")
+@TableName(value = "bs_user")
 @Getter
 @Setter
 public class User extends BaseEntity implements Serializable {
@@ -96,8 +99,8 @@ public class User extends BaseEntity implements Serializable {
 
     @ManyToMany
     @JsonIgnore
-    @JoinTable(name="pe_user_role",joinColumns={@JoinColumn(name="user_id",referencedColumnName="id")},
-            inverseJoinColumns={@JoinColumn(name="role_id",referencedColumnName="id")}
+    @JoinTable(name = "pe_user_role", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private Set<Role> roles = new HashSet<Role>();//用户与角色   多对多
 }

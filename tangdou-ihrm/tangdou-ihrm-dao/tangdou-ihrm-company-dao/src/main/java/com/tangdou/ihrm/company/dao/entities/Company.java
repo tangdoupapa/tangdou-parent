@@ -1,5 +1,6 @@
 package com.tangdou.ihrm.company.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangdou.common.base.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,8 +18,7 @@ import java.util.Date;
  * @Date: 2020/4/14 21:54
  * @Description: saas企业管理
  */
-@Entity
-@Table(name = "co_company")
+@TableName(value = "co_company")
 @ApiModel
 @Data
 @NoArgsConstructor

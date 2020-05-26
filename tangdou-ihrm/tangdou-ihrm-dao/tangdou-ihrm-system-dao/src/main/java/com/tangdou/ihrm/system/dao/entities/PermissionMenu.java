@@ -1,5 +1,6 @@
 package com.tangdou.ihrm.system.dao.entities;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangdou.common.base.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +16,7 @@ import java.io.Serializable;
  * Date:2018/3/22 10:24
  * Description: 菜单权限实体类
  */
-@Entity
-@Table(name = "pe_permission_menu")
+@TableName(value = "pe_permission_menu")
 @Getter
 @Setter
 public class  PermissionMenu extends BaseEntity implements Serializable {
