@@ -1,9 +1,8 @@
 package com.tangdou.ihrm.company.application;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -12,8 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Description:
  */
 @SpringBootApplication(scanBasePackages = "com.tangdou")
-@EntityScan("com.tangdou.ihrm.company.dao")
-@EnableJpaRepositories(basePackages = "com.tangdou.ihrm.company.dao")
+@MapperScan("com.tangdou.**.dao")
 @EnableSwagger2
 public class CompanyApplication {
 

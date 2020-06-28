@@ -51,14 +51,14 @@ public class UserController extends BaseController {
     @ApiOperation(value = "删除用户", notes = "删除用户")
     @DeleteMapping("/user/{id}")
     public GeneralResultCode delete(@PathVariable("id") String id) {
-        userService.delete(id);
+        userService.removeById(id);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "查询用户", notes = "查询用户")
     @GetMapping("/user/{id}")
     public Result<User> findById(@PathVariable("id") String id) {
-        return ResultUtil.successData(userService.findById(id));
+        return ResultUtil.successData(userService.getById(id));
     }
 
     @ApiOperation(value = "查询所有用户", notes = "查询所有用户")

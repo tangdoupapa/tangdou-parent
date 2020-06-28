@@ -48,14 +48,14 @@ public class RoleController extends BaseController {
     @ApiOperation(value = "删除角色", notes = "删除角色")
     @DeleteMapping("/role/{id}")
     public GeneralResultCode delete(@PathVariable("id") String id) {
-        roleService.delete(id);
+        roleService.removeById(id);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "查询角色", notes = "查询角色")
     @GetMapping("/role/{id}")
     public Result<Role> findById(@PathVariable("id") String id) {
-        return ResultUtil.successData(roleService.findById(id));
+        return ResultUtil.successData(roleService.getById(id));
     }
 
     /*@ApiOperation(value = "分页查询角色", notes = "分页查询角色")

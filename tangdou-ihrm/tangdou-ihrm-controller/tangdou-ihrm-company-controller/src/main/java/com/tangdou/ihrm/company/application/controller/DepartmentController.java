@@ -55,20 +55,20 @@ public class DepartmentController extends BaseController {
     @ApiOperation(value = "删除公司", notes = "删除公司")
     @DeleteMapping("/{id}")
     public GeneralResultCode delete(@PathVariable("id") String id) {
-        departmentService.delete(id);
+        departmentService.removeById(id);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "查询公司", notes = "查询公司")
     @GetMapping("/{id}")
     public Result<Department> findById(@PathVariable("id") String id) {
-        return ResultUtil.successData(departmentService.findById(id));
+        return ResultUtil.successData(departmentService.getById(id));
     }
 
     @ApiOperation(value = "查询所有公司", notes = "查询所有公司")
     @GetMapping
     public Result<DeptAllResponse> findAll() {
-        Company company = companyService.findById(companyId);
+        Company company = companyService.getById(companyId);
         List<Department> depts = departmentService.findAll(companyId);
         return ResultUtil.successData(new DeptAllResponse(company, depts));
     }

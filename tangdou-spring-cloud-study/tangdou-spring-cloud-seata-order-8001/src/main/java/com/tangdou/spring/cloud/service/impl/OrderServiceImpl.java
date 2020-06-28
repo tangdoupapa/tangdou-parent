@@ -41,7 +41,7 @@ public class OrderServiceImpl extends BaseServiceImpl<SeataOrderRepository, Orde
     public void create(OrderEntity order) {
         log.info("-------->开始创建新订单");
         order.setId(idWorker.nextIdToString());
-        orderDao.save(order);
+        orderDao.insert(order);
         log.info("--------订单微服务开始调用库存,做扣减");
         storageService.decrease(order.getProductId(), order.getCount());
         log.info("-------订单微服务开始调用库存，做扣减end");
@@ -51,7 +51,7 @@ public class OrderServiceImpl extends BaseServiceImpl<SeataOrderRepository, Orde
         log.info("-------订单微服务开始调用账户，做扣减end");
         log.info("-------修改订单状态");
         order.setStatus(0);
-        orderDao.save(order);
+        orderDao.insert(order);
         log.info("-------修改订单状态结束");
 
         log.info("--------下订单结束了，哈哈哈哈");

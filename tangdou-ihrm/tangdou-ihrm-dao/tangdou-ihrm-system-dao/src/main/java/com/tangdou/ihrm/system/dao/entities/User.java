@@ -23,11 +23,7 @@ import java.util.Set;
 @Setter
 public class User extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 4297464181093070302L;
-    /**
-     * ID
-     */
-    @Id
-    private String id;
+
     /**
      * 手机号码
      */

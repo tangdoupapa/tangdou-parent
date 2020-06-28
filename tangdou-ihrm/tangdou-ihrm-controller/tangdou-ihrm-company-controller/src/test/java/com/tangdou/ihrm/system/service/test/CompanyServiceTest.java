@@ -22,6 +22,6 @@ public class CompanyServiceTest {
 
     @Test
     public void findAll(){
-        System.out.println(companyService.findAll());
+        System.out.println(companyService.list());
     }
 }

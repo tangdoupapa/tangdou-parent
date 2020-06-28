@@ -1,9 +1,9 @@
 package com.tangdou.common.base.util;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tangdou.common.base.enums.GeneralResultCode;
 import com.tangdou.common.base.result.DataResult;
 import com.tangdou.common.base.result.Result;
-import org.springframework.data.domain.Page;
 
 import static com.tangdou.common.base.enums.GeneralResultCode.FAIL;
 import static com.tangdou.common.base.enums.GeneralResultCode.SUCCESS;

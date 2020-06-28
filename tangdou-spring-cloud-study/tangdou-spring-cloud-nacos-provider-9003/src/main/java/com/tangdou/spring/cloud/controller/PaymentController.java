@@ -42,14 +42,13 @@ public class PaymentController {
      */
     @GetMapping("get/{id}")
     public Result<Payment> selectOne(@PathVariable("id") String id) {
-        Payment payment = this.paymentService.findById(id);
+        Payment payment = this.paymentService.getById(id);
         return ResultUtil.successData(payment, "select success "+info+"!");
     }
 
     @PostMapping("create")
     public Result<Payment> create(@RequestBody Payment payment) {
-        Payment insert = this.paymentService.save(payment);
-        System.out.println(insert);
+        this.paymentService.save(payment);
         System.out.println("1234567890");
         return ResultUtil.successData(payment, "insert success");
     }

@@ -48,20 +48,20 @@ public class CompanyController extends BaseController {
     @ApiOperation(value = "删除公司", notes = "删除公司")
     @DeleteMapping("/{id}")
     public GeneralResultCode delete(@PathVariable("id") String id) {
-        companyService.delete(id);
+        companyService.removeById(id);
         return ResultUtil.success();
     }
 
     @ApiOperation(value = "查询公司", notes = "查询公司")
     @GetMapping("/{id}")
     public Result<Company> findById(@PathVariable("id") String id) {
-        return ResultUtil.successData(companyService.findById(id));
+        return ResultUtil.successData(companyService.getById(id));
     }
 
     @ApiOperation(value = "查询所有公司", notes = "查询所有公司")
     @GetMapping
     public Result<List<Company>> findAll() {
-        return ResultUtil.successData(companyService.findAll());
+        return ResultUtil.successData(companyService.list());
     }
 
 }

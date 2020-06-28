@@ -52,7 +52,7 @@ public class PaymentController {
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),
     })
     public Result<Payment> selectOne(@PathVariable("id") String id) {
-        Payment payment = this.paymentService.findById(id);
+        Payment payment = this.paymentService.getById(id);
         //超时设置,feign超时测试
        /* try {
             Thread.sleep(2000);
@@ -77,13 +77,13 @@ public class PaymentController {
      */
     @GetMapping("ok/{id}")
     public Result<Payment> selectOk(@PathVariable("id") String id) {
-        Payment payment = this.paymentService.findById(id);
+        Payment payment = this.paymentService.getById(id);
         return ResultUtil.successData(payment, "ok=" + port);
     }
 
     @PostMapping("create")
     public Result<Payment> create(@RequestBody Payment payment) {
-        Payment insert = this.paymentService.save(payment);
+        this.paymentService.save(payment);
 
         return ResultUtil.successData(payment, "insert success");
     }

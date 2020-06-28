@@ -1,6 +1,7 @@
 package com.tangdou.ihrm.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tangdou.common.request.PagerRequest;
 import com.tangdou.common.service.impl.BaseServiceImpl;
 import com.tangdou.ihrm.system.dao.entities.User;
 import com.tangdou.ihrm.system.dao.repository.UserRepository;
@@ -21,6 +22,6 @@ public class UserServiceImpl extends BaseServiceImpl<UserRepository, User, Strin
 
     @Override
     public Page<User> findPage(PagerRequest pageRequest) {
-        return userRepository.selectPage();
+        return null;
     }
 }
