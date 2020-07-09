@@ -21,6 +21,20 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-core-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tangdou</groupId>
+            <artifactId>tangdou-common-base-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tangdou</groupId>
+            <artifactId>tangdou-common-base-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 

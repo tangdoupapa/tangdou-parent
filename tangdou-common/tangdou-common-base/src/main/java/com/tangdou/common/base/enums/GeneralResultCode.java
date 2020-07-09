@@ -18,7 +18,10 @@ public enum GeneralResultCode {
     SUCCESS(true, 10000, "操作成功！"),
     FAIL(false, 10001, "操作失败"),
 
+    //权限模块错误码
+
     //系统错误返回码
+    ERROR_TOKEN(false,99998,"token验证失败"),
     SERVER_ERROR(false, 99999, "抱歉，系统繁忙，请稍后重试！");
 
     @ApiModelProperty("操作结果")

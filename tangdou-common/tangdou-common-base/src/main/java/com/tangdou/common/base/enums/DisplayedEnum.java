@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * @Date: 2020/4/6 22:42
  * @Description: 页面展示对象中含有枚举可以使用
  */
-public interface DisplayedEnum {
+public interface DisplayedEnum{
     String DEFAULT_VALUE_NAME = "code";
     String DEFAULT_LABEL_NAME = "name";
     Pattern CODE_PATTERN = PatternPool.get("\\d+|-\\d");

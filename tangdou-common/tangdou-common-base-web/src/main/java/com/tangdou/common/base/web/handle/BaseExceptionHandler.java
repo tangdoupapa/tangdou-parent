@@ -1,7 +1,7 @@
 package com.tangdou.common.base.web.handle;
 
 import com.tangdou.common.base.enums.GeneralResultCode;
-import com.tangdou.common.base.exception.CommonException;
+import com.tangdou.common.base.exception.GlobalException;
 import com.tangdou.common.base.util.ResultUtil;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,8 +21,8 @@ public class BaseExceptionHandler {
     public GeneralResultCode error(HttpServletRequest request, HttpServletResponse response,
                                    Exception e) throws IOException {
         e.printStackTrace();
-        if (e.getClass() == CommonException.class) {
-            CommonException ce = (CommonException) e;
+        if (e.getClass() == GlobalException.class) {
+            GlobalException ce = (GlobalException) e;
             return ce.getCode();
         } else {
             return ResultUtil.fail();

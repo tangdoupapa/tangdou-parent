@@ -18,6 +18,7 @@
 
     <properties>
         <activiti.version>7.0.0.Beta3</activiti.version>
+        <cas.version>4.2.7</cas.version>
         <druid.version>1.1.21</druid.version>
         <fastjson.version>1.2.67</fastjson.version>
         <flowable.version>6.5.0</flowable.version>
@@ -26,13 +27,14 @@
         <javaee.version>8.0</javaee.version>
         <javax.el.version>3.0.1-b08</javax.el.version>
         <jersey.version>2.25.1</jersey.version>
+        <jwt.version>3.8.1</jwt.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mybatis.plus.boot.starter>3.3.1.tmp</mybatis.plus.boot.starter>
         <mysql.version>5.1.35</mysql.version>
         <netty.version>0.9.2.RELEASE</netty.version>
         <seata.version>1.1.0</seata.version>
-        <shiro.version>1.4.0-RC2</shiro.version>
+        <shiro.version>1.5.3</shiro.version>
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
@@ -147,6 +149,19 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-core</artifactId>
                 <version>${mybatis.plus.boot.starter}</version>
+            </dependency>
+
+            <!--CAS依赖-->
+            <dependency>
+                <groupId>org.jasig.cas</groupId>
+                <artifactId>cas-server-core-api</artifactId>
+                <version>${cas.version}</version>
+            </dependency>
+            <!--jwt依赖-->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
