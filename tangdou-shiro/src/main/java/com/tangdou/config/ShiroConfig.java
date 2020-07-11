@@ -2,6 +2,8 @@ package com.tangdou.config;
 
 import cn.hutool.core.collection.CollUtil;
 import com.tangdou.config.realms.CustomRealm;
+import org.apache.shiro.cas.CasFilter;
+import org.apache.shiro.cas.CasSubjectFactory;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -37,7 +39,7 @@ public class ShiroConfig {
     );
 
     @Bean("securityManager")
-    public DefaultWebSecurityManager securityManager(CustomRealm userRealm) {
+    public DefaultWebSecurityManager securityManager(CustomRealm userRealm, CasSubjectFactory subjectFactory) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(userRealm);
         /*
@@ -50,6 +52,8 @@ public class ShiroConfig {
         defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
         subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
         securityManager.setSubjectDAO(subjectDAO);
+
+        securityManager.setSubjectFactory(subjectFactory);
         return securityManager;
     }
 
@@ -60,7 +64,7 @@ public class ShiroConfig {
         // 添加自己的过滤器并且取名为jwt
         Map<String, Filter> filterMap = new LinkedHashMap<>();
         //设置我们自定义的JWT过滤器
-        filterMap.put("jwt", new JwtFilter());
+        filterMap.put("casFilter", new CasFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
@@ -71,8 +75,9 @@ public class ShiroConfig {
         Map<String, String> chainDefinitionMap = WHITE_LIST.stream()
                 .collect(Collectors.toMap(x -> x, x -> "anon", (existing, replacement) -> existing, LinkedHashMap::new));
 
+        chainDefinitionMap.put("/login", "casFilter");
         chainDefinitionMap.put("/shiro/*", "anon");
-        chainDefinitionMap.put("/**", "jwt");
+        chainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(chainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -101,5 +106,11 @@ public class ShiroConfig {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
         advisor.setSecurityManager(securityManager);
         return advisor;
+    }
+
+    // =========================================== CAS 相关配置 ==============================
+    @Bean
+    public CasSubjectFactory casSubjectFactory() {
+        return new CasSubjectFactory();
     }
 }

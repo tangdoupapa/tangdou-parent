@@ -1,4 +1,4 @@
-package com.tangdou.config;
+package com.tangdou.config.filter;
 
 import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.core.util.StrUtil;
@@ -6,6 +6,7 @@ import cn.hutool.json.JSONUtil;
 import com.tangdou.common.base.constant.CommonConstants;
 import com.tangdou.common.base.result.Result;
 import com.tangdou.common.base.util.ResultUtil;
+import com.tangdou.config.JwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.UnauthorizedException;

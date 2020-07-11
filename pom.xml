@@ -157,6 +157,11 @@
                 <artifactId>cas-server-core-api</artifactId>
                 <version>${cas.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-cas</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
             <!--jwt依赖-->
             <dependency>
                 <groupId>com.auth0</groupId>

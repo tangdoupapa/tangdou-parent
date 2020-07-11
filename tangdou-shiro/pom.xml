@@ -26,6 +26,10 @@
             <artifactId>cas-server-core-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-cas</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.tangdou</groupId>
             <artifactId>tangdou-common-base-dao</artifactId>
             <version>${project.version}</version>
