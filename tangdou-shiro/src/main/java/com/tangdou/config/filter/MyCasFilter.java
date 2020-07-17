@@ -1,37 +1,95 @@
 package com.tangdou.config.filter;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.cas.CasFilter;
 import org.apache.shiro.cas.CasToken;
-import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.util.SavedRequest;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Field;
 
-/**
- * @Auther: tangdouopapa
- * @Date: 2020/7/10 14:21
- * @Description:
- */
-public class MyCasFilter extends AuthenticatingFilter {
-
-    // the name of the parameter service ticket in url
+public class MyCasFilter extends CasFilter {
     private static final String TICKET_PARAMETER = "ticket";
 
+    public MyCasFilter() {
+    }
+
     @Override
-    protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
+    public AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
+        // 获取请求的ticket
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        String ticket = httpRequest.getParameter(TICKET_PARAMETER);
+        String ticket = getRequestTicket(httpRequest);
+        if (StringUtils.isEmpty(ticket)) {
+            return null;
+        }
         return new CasToken(ticket);
     }
 
+    /**
+     * 拒绝除了option以外的所有请求
+     **/
     @Override
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        return executeLogin(request, response);
+    public boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
+        if (((HttpServletRequest) request).getMethod().equals(RequestMethod.OPTIONS.name())) {
+            return true;
+        }
+        return false;
     }
 
     @Override
-    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        return false;
+    public boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        // 获取ticket，如果不存在，直接返回false
+        String ticket = getRequestTicket((HttpServletRequest) request);
+        if (StringUtils.isEmpty(ticket)) {
+            return false;
+        }
+        return this.executeLogin(request, response);
+    }
+
+    @Override
+    protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
+        //获取AuthenticationToken实体
+        AuthenticationToken token = createToken(request, response);
+        if (token == null) {
+            String msg = "createToken method implementation returned null. A valid non-null AuthenticationToken " +
+                    "must be created in order to execute a login attempt.";
+            throw new IllegalStateException(msg);
+        }
+        try {
+            Subject subject = getSubject(request, response);
+            //执行分子系统的Shrio认证与授权
+            subject.login(token);
+            SavedRequest shiroSavedRequest = (SavedRequest) SecurityUtils.getSubject().getSession(false).getAttribute("shiroSavedRequest");
+            if (shiroSavedRequest != null) {
+                //修改url地址为登录首页，否则会跳转到之前手输的地址容易404,由于没有set方法，所以使用反射
+                Class<? extends Object> clazz  = shiroSavedRequest.getClass();
+                Field requestURI = clazz.getDeclaredField("requestURI");
+                requestURI.setAccessible(true);
+                requestURI.set(shiroSavedRequest,this.getSuccessUrl());
+            }
+            return onLoginSuccess(token, subject, request, response);
+        } catch (AuthenticationException e) {
+            return onLoginFailure(token, e, request, response);
+        }
+    }
+
+    /**
+     * 获取请求的ticket
+     */
+    private String getRequestTicket(HttpServletRequest httpRequest) {
+        // 从参数中获取ticket
+        String ticket = httpRequest.getParameter(TICKET_PARAMETER);
+        if (StringUtils.isEmpty(ticket)) {
+            // 如果为空的话，则从header中获取参数
+            ticket = httpRequest.getHeader(TICKET_PARAMETER);
+        }
+        return ticket;
     }
 }

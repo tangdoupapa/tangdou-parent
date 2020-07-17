@@ -1,7 +1,7 @@
 package com.tangdou.config;
 
 import cn.hutool.core.collection.CollUtil;
-import com.tangdou.config.realms.CustomRealm;
+import com.tangdou.config.realms.MyShiroCasRealm;
 import org.apache.shiro.cas.CasFilter;
 import org.apache.shiro.cas.CasSubjectFactory;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * @Date: 2020/7/8 17:24
  * @Description:
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
 
     /**
@@ -39,7 +39,7 @@ public class ShiroConfig {
     );
 
     @Bean("securityManager")
-    public DefaultWebSecurityManager securityManager(CustomRealm userRealm, CasSubjectFactory subjectFactory) {
+    public DefaultWebSecurityManager securityManager(MyShiroCasRealm userRealm, CasSubjectFactory subjectFactory) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(userRealm);
         /*
@@ -64,7 +64,8 @@ public class ShiroConfig {
         // 添加自己的过滤器并且取名为jwt
         Map<String, Filter> filterMap = new LinkedHashMap<>();
         //设置我们自定义的JWT过滤器
-        filterMap.put("casFilter", new CasFilter());
+        filterMap.put("casFilter", casFilter());
+        shiroFilterFactoryBean.setLoginUrl("https://tangdou.com?service=http://localhost:9001/get");
         shiroFilterFactoryBean.setFilters(filterMap);
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
@@ -77,9 +78,16 @@ public class ShiroConfig {
 
         chainDefinitionMap.put("/login", "casFilter");
         chainDefinitionMap.put("/shiro/*", "anon");
-        chainDefinitionMap.put("/**", "authc");
+        chainDefinitionMap.put("/**", "anon");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(chainDefinitionMap);
         return shiroFilterFactoryBean;
+    }
+
+    public CasFilter casFilter(){
+        CasFilter casFilter = new CasFilter();
+//        casFilter.setLoginUrl("https://tangdou.com?service=http://localhost:9001/get");
+//        casFilter.setFailureUrl("https://tangdou.com?service=http://localhost:9001/get");
+        return casFilter;
     }
 
 

@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class ShiroApplication {
 
     public static void main(String[] args) {
+        System.setProperty("sun.security.ssl.allowUnsafeRenegotiation","true");
         SpringApplication.run(ShiroApplication.class);
     }
 }
